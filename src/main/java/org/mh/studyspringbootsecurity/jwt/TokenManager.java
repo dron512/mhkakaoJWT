@@ -51,9 +51,6 @@ public class TokenManager {
     }
 
     public String createAccessToken(Long memberId, Role role, Date expirationTime) {
-        System.out.println(tokenSecret);
-        System.out.println(expirationTime);
-
         String accessToken = Jwts.builder()
                 .setSubject(TokenType.ACCESS.name())    // 토큰 제목
                 .setIssuedAt(new Date())                // 토큰 발급 시간

@@ -32,6 +32,7 @@ public class MySecurityConfig implements WebMvcConfigurer {
                    ;
         });
 
+        // h2 console 보이게
         httpSecurity.headers( header->{
            header.frameOptions(frameOptionsConfig -> frameOptionsConfig.sameOrigin());
         });

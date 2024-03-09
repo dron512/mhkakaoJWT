@@ -1,19 +1,20 @@
 package org.mh.studyspringbootsecurity.domain.member;
 
 import jakarta.persistence.Entity;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import jakarta.persistence.*;
 import org.mh.studyspringbootsecurity.domain.common.BaseEntity;
+import org.mh.studyspringbootsecurity.jwt.JwtTokenDto;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 public class Member extends BaseEntity {
 
     @Id
@@ -45,21 +46,12 @@ public class Member extends BaseEntity {
 
     private LocalDateTime tokenExpirationTime;
 
-    @Builder
-    public Member(MemberType memberType, String email, String password, String memberName,
-                  String profile, Role role) {
-        this.memberType = memberType;
-        this.email = email;
-        this.password = password;
-        this.memberName = memberName;
-        this.profile = profile;
-        this.role = role;
+    public void updateRefreshToken(JwtTokenDto jwtTokenDto) {
+        this.refreshToken = jwtTokenDto.getRefreshToken();
+        // Date 클래스 -> LocalDateTime 으로 변환
+        this.tokenExpirationTime = jwtTokenDto.getRefreshTokenExpireTime()
+                                    .toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
-
-//    public void updateRefreshToken(JwtTokenDto jwtTokenDto) {
-//        this.refreshToken = jwtTokenDto.getRefreshToken();
-//        this.tokenExpirationTime = DateTimeUtils.convertToLocalDateTime(jwtTokenDto.getRefreshTokenExpireTime());
-//    }
 
     public void expireRefreshToken(LocalDateTime now) {
         this.tokenExpirationTime = now;
