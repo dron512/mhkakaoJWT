@@ -29,9 +29,8 @@ spring:
 
 kakao:
   client:
-    # todo 아이디 비번 설정 다시 해야함.
-    id: ENC(hptYhss+Azr38wjSi4w6AbgcnT9Al5mTqIftXaqwMJ+lqW/i6FKevGJR7/152KhD) #rest api ?
-    secret: ENC(jpKj7vkdQY527+0VUmBf7HfpxSS2Gtrh4lNqyO24yRyPIXf9VeOzpgFshvfl+Bfm) # ????? ??? ?
+    id: ENC(RSzLlN+ATBeCkdhklo8GTZJH/Dvue1zXWvEDrqGjev3LqJekBfWvBRmeGcufBc0I) #rest api ?
+    secret: ENC(1jD3o6dRKTMBOAzoAXEZYjFKIC4LeCIy5El0HZIaXYS2263nlxTqSzipGy72rPkh) # ????? ??? ?
 
 # TokenManager
 token:
@@ -40,4 +39,5 @@ token:
   refresh-token-expiration-time: 1209600000 # 2주 1000(ms) x 60 (s) x 60(m) x 24(h) x 14(d)
 
 jasypt:
-  password: ${PASSWORD}
+  encryptor:
+    password: ${PASSWORD}

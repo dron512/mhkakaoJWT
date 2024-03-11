@@ -14,9 +14,18 @@ class StudyspringbootsecurityApplicationTests {
         encryptor.setPoolSize(4);
         encryptor.setPassword(password);
         encryptor.setAlgorithm("PBEWithMD5AndTripleDES");
-        String content = "SmkvzLkX268Z0iDWfeHYMRdRFrYDq2O7";    // 암호화 할 내용
+        String content = "cf2d93f813f588cb0616341a7a287487";    // 암호화 할 내용
         String encryptedContent = encryptor.encrypt(content); // 암호화
         String decryptedContent = encryptor.decrypt(encryptedContent); // 복호화
+        System.out.println("Enc : " + encryptedContent + ", Dec: " + decryptedContent);
+
+        encryptor = new PooledPBEStringEncryptor();
+        encryptor.setPoolSize(4);
+        encryptor.setPassword(password);
+        encryptor.setAlgorithm("PBEWithMD5AndTripleDES");
+        content = "Hr7gAtRILsnFEZB6IWxt3SRdnJXlOi0F";    // 암호화 할 내용
+        encryptedContent = encryptor.encrypt(content); // 암호화
+        decryptedContent = encryptor.decrypt(encryptedContent); // 복호화
         System.out.println("Enc : " + encryptedContent + ", Dec: " + decryptedContent);
     }
 
