@@ -30,11 +30,14 @@ spring:
 kakao:
   client:
     # todo 아이디 비번 설정 다시 해야함.
-    id: cf2d93f813f588cb0616341a7a287487 #rest api ?
-    secret: SmkvzLkX268Z0iDWfeHYMRdRFrYDq2O7 # ????? ??? ?
+    id: ENC(hptYhss+Azr38wjSi4w6AbgcnT9Al5mTqIftXaqwMJ+lqW/i6FKevGJR7/152KhD) #rest api ?
+    secret: ENC(jpKj7vkdQY527+0VUmBf7HfpxSS2Gtrh4lNqyO24yRyPIXf9VeOzpgFshvfl+Bfm) # ????? ??? ?
 
 # TokenManager
 token:
   secret: passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword # 임의의 문자열
   access-token-expiration-time: 900000  # 15분 1000(ms) x 60(s) x 15(m)
   refresh-token-expiration-time: 1209600000 # 2주 1000(ms) x 60 (s) x 60(m) x 24(h) x 14(d)
+
+jasypt:
+  password: ${PASSWORD}
