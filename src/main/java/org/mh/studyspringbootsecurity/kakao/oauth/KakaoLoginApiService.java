@@ -1,9 +1,12 @@
-package org.mh.studyspringbootsecurity.kakao;
+package org.mh.studyspringbootsecurity.kakao.oauth;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mh.studyspringbootsecurity.domain.member.MemberType;
 import org.mh.studyspringbootsecurity.jwt.GrantType;
+import org.mh.studyspringbootsecurity.kakao.KakaoUserInfoClient;
+import org.mh.studyspringbootsecurity.kakao.KakaoUserInfoResponseDto;
+import org.mh.studyspringbootsecurity.kakao.OAuthAttributes;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;

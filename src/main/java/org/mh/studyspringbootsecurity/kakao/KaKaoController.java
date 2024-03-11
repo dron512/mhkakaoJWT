@@ -8,8 +8,8 @@ import org.mh.studyspringbootsecurity.error.AuthenticationException;
 import org.mh.studyspringbootsecurity.error.BusinessException;
 import org.mh.studyspringbootsecurity.error.ErrorCode;
 import org.mh.studyspringbootsecurity.jwt.GrantType;
-import org.mh.studyspringbootsecurity.kakao.oauth.OauthLoginDto;
-import org.mh.studyspringbootsecurity.kakao.oauth.OauthLoginService;
+import org.mh.studyspringbootsecurity.kakao.oauth.KaKaoLoginDto;
+import org.mh.studyspringbootsecurity.kakao.oauth.KaKaoLoginService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class KaKaoController {
 
     private final KakaoTokenClient kakaoTokenClient;
-    private final OauthLoginService oauthLoginService;
+    private final KaKaoLoginService oauthLoginService;
 
 
     //import org.springframework.beans.factory.annotation.Value;
@@ -37,7 +37,7 @@ public class KaKaoController {
     private String clientSecret;
 
     @PostMapping("/login")
-    public ResponseEntity<OauthLoginDto.Response> oauthLogin(@RequestBody OauthLoginDto.Request oauthLoginRequestDto,
+    public ResponseEntity<KaKaoLoginDto.Response> oauthLogin(@RequestBody KaKaoLoginDto.Request oauthLoginRequestDto,
                                                              HttpServletRequest httpServletRequest) {
         // ================카카오 토큰이 들어왔는지 확인 시작
         String authorizationHeader = httpServletRequest.getHeader("Authorization");
@@ -59,7 +59,7 @@ public class KaKaoController {
         }
 
         String accessToken = authorizationHeader.split(" ")[1];
-        OauthLoginDto.Response jwtTokenResponseDto = oauthLoginService
+        KaKaoLoginDto.Response jwtTokenResponseDto = oauthLoginService
                 .oauthLogin(accessToken, MemberType.from(oauthLoginRequestDto.getMemberType()));
         return ResponseEntity.ok(jwtTokenResponseDto);
     }

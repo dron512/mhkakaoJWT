@@ -6,7 +6,7 @@ import org.mh.studyspringbootsecurity.jwt.JwtTokenDto;
 
 import java.util.Date;
 
-public class OauthLoginDto {
+public class KaKaoLoginDto {
 
     @Getter @Setter
     public static class Request {

@@ -30,7 +30,7 @@ spring:
 kakao:
   client:
     # todo 아이디 비번 설정 다시 해야함.
-    id: 38b99bb2df5447bcb6b585cfccbe97dc #rest api ?
+    id: cf2d93f813f588cb0616341a7a287487 #rest api ?
     secret: SmkvzLkX268Z0iDWfeHYMRdRFrYDq2O7 # ????? ??? ?
 
 # TokenManager
