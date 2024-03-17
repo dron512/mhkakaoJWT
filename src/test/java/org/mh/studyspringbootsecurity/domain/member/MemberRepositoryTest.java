@@ -1,35 +1,19 @@
-package org.mh.studyspringbootsecurity.example;
+package org.mh.studyspringbootsecurity.domain.member;
 
 import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mh.studyspringbootsecurity.domain.member.*;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
 @SpringBootTest
-//@ExtendWith(SpringExtension.class)
-//@Import({MemberController.class, MemberService.class})
-public class MemberTest {
-
-    @Autowired
-    MemberService memberService;
+public class MemberRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;
-
-    @Test
-    public void findMemberByEmail() {
-        Optional<Member> optionalMember = memberService.findMemberByEmail("aaa@naver.com");
-
-        Assertions.assertEquals(optionalMember.get().getMemberName(), "aaa");
-    }
-
     @Test
     public void saveProductTest() {
         //given
@@ -39,7 +23,6 @@ public class MemberTest {
                 .memberType(MemberType.KAKAO)
                 .role(Role.USER)
                 .build());
-
         Assertions.assertEquals(optionalMember.getMemberName(), "aaa");
     }
 

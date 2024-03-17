@@ -1,4 +1,4 @@
-package org.mh.studyspringbootsecurity.example;
+package org.mh.studyspringbootsecurity.domain.member;
 
 import org.junit.jupiter.api.Test;
 import org.mh.studyspringbootsecurity.domain.member.MemberRepository;
@@ -17,13 +17,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class MemberControllerTest {
-
     @Autowired
     MockMvc mockMvc;
-
     @Autowired
     MemberRepository memberRepository;
-
     @Test
     void name() throws Exception {
         //when
