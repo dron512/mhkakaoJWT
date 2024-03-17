@@ -8,7 +8,6 @@ import org.mh.studyspringbootsecurity.error.AuthenticationException;
 import org.mh.studyspringbootsecurity.error.ErrorCode;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.converter.json.MappingJacksonValue;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +26,7 @@ public class MemberController {
     public MappingJacksonValue getById(@PathVariable Long id){
 
         Optional<Member> dbMember = memberRepository.findById(id);
+
 
         AdminMember adminMember = new AdminMember();
         dbMember.ifPresentOrElse(item -> {
