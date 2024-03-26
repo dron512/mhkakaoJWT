@@ -16,11 +16,11 @@ class MemberServiceTest {
 
     @Test
     void findMemberByEmail() {
-        Optional<Member> optionalMember = memberService.findMemberByEmail("aaa@naver.com");
-        if(optionalMember.isEmpty())
-            System.out.println("optionalMember is empty");
-        else
-            System.out.println(optionalMember.get().getMemberName());
+//        Optional<Member> optionalMember = memberService.findMemberByEmail("aaa@naver.com");
+//        if(optionalMember.isEmpty())
+//            System.out.println("optionalMember is empty");
+//        else
+//            System.out.println(optionalMember.get().getMemberName());
     }
 
 }

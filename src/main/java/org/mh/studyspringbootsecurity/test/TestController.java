@@ -1,5 +1,6 @@
 package org.mh.studyspringbootsecurity.test;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Bearer Authentication")
 public class TestController {
 
     private final TestRepository testRepository;
@@ -21,7 +23,7 @@ public class TestController {
     }
 
     @GetMapping("update")
-    @Transactional(readOnly = true)
+    @Transactional
     public String update(){
         Test testEntity= testRepository.findById(1l).orElseThrow();
         testEntity.setAa("test");

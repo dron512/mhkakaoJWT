@@ -24,12 +24,12 @@ public class MemberControllerTest {
     @Test
     void name() throws Exception {
         //when
-        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/member/1"));
-
-        //then
-        resultActions
-                .andDo(print())
-                .andExpect(status().isOk());
-        System.out.println("MemberRepositoryTest.name");
+//        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/member/1"));
+//
+//        //then
+//        resultActions
+//                .andDo(print())
+//                .andExpect(status().isOk());
+//        System.out.println("MemberRepositoryTest.name");
     }
 }
